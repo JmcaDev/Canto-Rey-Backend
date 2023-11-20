@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Sistema Canto Rey, C.A.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JmcaDev/Canto-Rey.git"
+  },
+  "keywords": [
+    "MongoDB",
+    "NodeJS",
+    "React",
+    "Express"
+  ],
+  "author": "José Castillo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JmcaDev/Canto-Rey/issues"
+  },
+  "homepage": "https://github.com/JmcaDev/Canto-Rey#readme"
+}
