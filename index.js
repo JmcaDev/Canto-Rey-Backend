@@ -1,11 +1,19 @@
 import express from "express";
 import dotenv from "dotenv";
 import conectarDb from "./config/db.js"
+import productoRouter from "./routes/productoRoutes.js"
 
 const app = express();
+app.use(express.json())
+
+//Variables entorno
 dotenv.config();
 
+//Conexion base de datos
 conectarDb()
+
+//Routing
+app.use("/api/productos", productoRouter)
 
 const PORT = process.env.PORT || 4000
 
