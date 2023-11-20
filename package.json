@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Sistema Canto Rey, C.A.",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "node index.js"
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,13 @@
   "bugs": {
     "url": "https://github.com/JmcaDev/Canto-Rey/issues"
   },
-  "homepage": "https://github.com/JmcaDev/Canto-Rey#readme"
+  "homepage": "https://github.com/JmcaDev/Canto-Rey#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
