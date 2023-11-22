@@ -9,30 +9,35 @@ const notaEntregaSchema = mongoose.Schema({
         type: Date,
         default: Date.now()
     },
-    cantKg: {
-        type: String,
-        required: true,
-        trim: true
-    },
     productos: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Producto"
+            producto: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: "Producto",
+            },
+            cantkg: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            precioKg: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            montoProducto: {
+                type: String,
+                required: true,
+                trim: true
+            },
         }
     ],
-    precioKg: {
-        type: String,
-        required: true,
-        trim: true
-    },
-    montoProducto: {
-        type: String,
-        required: true,
-        trim: true
-    },
     montoTotal: {
         type: String,
         required: true,
         trim: true
     }
 })
+
+const NotaEntrega = mongoose.model("Nota_Entrega", notaEntregaSchema)
+export default NotaEntrega
