@@ -8,8 +8,9 @@ const clienteSchema = mongoose.Schema({
     },
     rif: {
         type: String,
-        required: false,
-        trim: true
+        required: true,
+        trim: true,
+        unique: true
     },
     direccion: {
         type: String,

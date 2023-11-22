@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import conectarDb from "./config/db.js"
 import productoRouter from "./routes/productoRoutes.js"
+import clienteRouter from "./routes/clienteRoutes.js"
 
 const app = express();
 app.use(express.json())
@@ -14,6 +15,7 @@ conectarDb()
 
 //Routing
 app.use("/api/productos", productoRouter)
+app.use("/api/clientes", clienteRouter)
 
 const PORT = process.env.PORT || 4000
 
