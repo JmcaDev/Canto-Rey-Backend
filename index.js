@@ -4,6 +4,7 @@ import conectarDb from "./config/db.js"
 import productoRouter from "./routes/productoRoutes.js"
 import clienteRouter from "./routes/clienteRoutes.js"
 import notasEntregasRouter from "./routes/notaEntregaRoutes.js"
+import ventasRouter from "./routes/ventaRoutes.js"
 
 const app = express();
 app.use(express.json())
@@ -18,6 +19,7 @@ conectarDb()
 app.use("/api/productos", productoRouter)
 app.use("/api/clientes", clienteRouter)
 app.use("/api/notasentregas", notasEntregasRouter)
+app.use("/api/ventas", ventasRouter)
 
 const PORT = process.env.PORT || 4000
 

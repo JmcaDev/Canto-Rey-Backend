@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import NotaEntrega from "../models/NotaEntrega.js"
+import Venta from "../models/Venta.js"
 
 const obtenerNotasEntrega = async (req, res) => {
     const notasEntregas = await NotaEntrega.find({})
@@ -25,6 +26,11 @@ const obtenerNotaEntrega = async (req,res) => {
 }
 
 const agregarNotaEntrega = async (req, res) =>{
+    const {productos} = req.body
+    await productos.forEach((producto) => {
+        const venta = new Venta(producto)
+        venta.save()
+    });
     try {
         const notaEntrega = new NotaEntrega(req.body)
         await notaEntrega.save()
