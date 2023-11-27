@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import conectarDb from "./config/db.js"
+import usuarioRouter from "./routes/usuarioRoutes.js"
 import productoRouter from "./routes/productoRoutes.js"
 import clienteRouter from "./routes/clienteRoutes.js"
 import notasEntregasRouter from "./routes/notaEntregaRoutes.js"
@@ -16,6 +17,7 @@ dotenv.config();
 conectarDb()
 
 //Routing
+app.use("/api/usuarios", usuarioRouter)
 app.use("/api/productos", productoRouter)
 app.use("/api/clientes", clienteRouter)
 app.use("/api/notasentregas", notasEntregasRouter)
