@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import conectarDb from "./config/db.js"
 import usuarioRouter from "./routes/usuarioRoutes.js"
@@ -24,6 +25,23 @@ app.use("/api/notasentregas", notasEntregasRouter)
 app.use("/api/ventas", ventasRouter)
 
 const PORT = process.env.PORT || 4000
+
+//Configurar CORS
+const whiteList = process.env.FRONTEND_URL 
+
+const corsOptions = {
+    origin: function(origin, callback){
+        if(whiteList.includes(origin)){
+            //Puedo consultar la API
+            callback(null,true)
+        }else{
+            //No puede consultar la api
+            callback(new Error("Error de cors"))
+        }
+    }
+}
+
+app.use(cors(corsOptions))
 
 app.listen(PORT, () => {
     console.log(`servidor oyendo en el puerto ${PORT}`)
