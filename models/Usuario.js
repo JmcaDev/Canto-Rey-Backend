@@ -18,6 +18,10 @@ const usuarioSchema = mongoose.Schema({
         trim: true,
         unique: true
     },
+    confirmado: {
+        type: Boolean,
+        default: false
+    },
     token: {
         type: String
     },
