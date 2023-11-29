@@ -27,16 +27,15 @@ app.use("/api/ventas", ventasRouter)
 const PORT = process.env.PORT || 4000
 
 //Configurar CORS
-const whiteList = process.env.FRONTEND_URL 
+const whiteList = ["http://localhost:5173"]
 
 const corsOptions = {
     origin: function(origin, callback){
+        console.log(origin)
         if(whiteList.includes(origin)){
-            //Puedo consultar la API
-            callback(null,true)
+            //Puede consultar la api
         }else{
-            //No puede consultar la api
-            callback(new Error("Error de cors"))
+            //No esta permitido
         }
     }
 }
