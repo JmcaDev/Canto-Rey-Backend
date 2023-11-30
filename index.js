@@ -17,6 +17,21 @@ dotenv.config();
 //Conexion base de datos
 conectarDb()
 
+//Configurar cors
+const whitelist = ['http://localhost:5173']
+
+const corsOptions = {
+    origin: function(origin, callback){
+        if(whitelist.includes(origin)){
+            callback(null, true)
+        }else{
+            callback(new Error("Error de cors"))
+        }
+    }
+}
+
+app.use(cors(corsOptions))
+
 //Routing
 app.use("/api/usuarios", usuarioRouter)
 app.use("/api/productos", productoRouter)
@@ -25,22 +40,6 @@ app.use("/api/notasentregas", notasEntregasRouter)
 app.use("/api/ventas", ventasRouter)
 
 const PORT = process.env.PORT || 4000
-
-//Configurar CORS
-const whiteList = ["http://localhost:5173"]
-
-const corsOptions = {
-    origin: function(origin, callback){
-        console.log(origin)
-        if(whiteList.includes(origin)){
-            //Puede consultar la api
-        }else{
-            //No esta permitido
-        }
-    }
-}
-
-app.use(cors(corsOptions))
 
 app.listen(PORT, () => {
     console.log(`servidor oyendo en el puerto ${PORT}`)

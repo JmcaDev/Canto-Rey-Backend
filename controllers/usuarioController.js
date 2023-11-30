@@ -17,16 +17,13 @@ const registrar = async (req,res) => {
         const usuario = new Usuario(req.body)
         usuario.token = generarId()
         await usuario.save()
-
+        res.json({msg: "Usuario creado exitosamente, Revisa tu email para confirmar tu cuenta"})
         //Enviar email confirmacion
         emailRegistro({
             email: usuario.email,
             nombre: usuario.nombre,
             token: usuario.token
         })
-
-        res.json({msg: "Usuario creado exitosamente"})
-
 
     } catch (error) {
         console.log(error)
