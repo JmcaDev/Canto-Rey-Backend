@@ -39,7 +39,7 @@ const agregarCliente = async (req,res) => {
     try {
         const cliente = new Cliente(req.body)
         await cliente.save()
-        res.json({msg: "Cliente agregado exitosamente"})
+        res.json(cliente)
     } catch (error) {
         console.log(error)
     }
@@ -91,7 +91,7 @@ const eliminarCliente = async (req, res) => {
     }
 
     try{
-        await Cliente.deleteOne()
+        await cliente.deleteOne();
         res.json({msg: "Cliente Eliminado"})
     }catch(error){
         console.log(error)

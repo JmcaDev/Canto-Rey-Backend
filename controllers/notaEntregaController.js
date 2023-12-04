@@ -34,7 +34,7 @@ const agregarNotaEntrega = async (req, res) =>{
     try {
         const notaEntrega = new NotaEntrega(req.body)
         await notaEntrega.save()
-        res.json({msg: "Nota de entrega agregada exitosamente"})
+        res.json(notaEntrega)
     } catch (error) {
         console.log(error)
     }

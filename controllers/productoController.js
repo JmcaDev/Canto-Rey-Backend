@@ -39,7 +39,7 @@ const agregarProducto = async (req,res) => {
     try {
         const producto = new Producto(req.body)
         await producto.save()
-        res.json({msg: "Producto agregado exitosamente"})
+        res.json(producto)
     } catch (error) {
         console.log(error)
     }
