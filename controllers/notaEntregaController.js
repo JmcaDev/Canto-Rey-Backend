@@ -27,6 +27,7 @@ const obtenerNotaEntrega = async (req,res) => {
 
 const agregarNotaEntrega = async (req, res) =>{
     const {productos} = req.body
+    console.log(productos)
     await productos.forEach((producto) => {
         const venta = new Venta(producto)
         venta.save()

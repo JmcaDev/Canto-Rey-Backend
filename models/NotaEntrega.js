@@ -15,7 +15,22 @@ const notaEntregaSchema = mongoose.Schema({
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Producto",
             },
-            cantkg: {
+            id: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            idProducto: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            nombreProducto: {
+                type: String,
+                required: true,
+                trim: true
+            },
+            cantKg: {
                 type: String,
                 required: true,
                 trim: true
